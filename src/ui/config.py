@@ -10,34 +10,34 @@ class LoadConfig:
     Get the list of LLM options from the configuration file.
     """
     
-    return self.config.get['DEFAULT'].get('LLM_options').split(', ')
+    return self.config.get('DEFAULT', 'LLM_options').split(', ')
   
   def get_use_case(self):
     """
     Get the use case from config file.
     """
 
-    return self.config.get['DEFAULT'].get('USE_CASE').split(', ')
+    return self.config.get('DEFAULT', 'USE_CASE').split(', ')
   
   def get_title(self):
     """
     Get the title from config file.
     """
 
-    return self.config.get['DEFAULT'].get('Title')
+    return self.config.get('DEFAULT', 'Title')
   
   def get_groq_models(self):
     """
     Get groq models from the config file.
     """
 
-    return self.config.get['DEFAULT'].get('GROQ_MODEL').split(', ')
+    return self.config.get('DEFAULT', 'GROQ_MODEL').split(', ')
 
   def get_openai_models(self):
     """
     Get OpenAI models from config file.
     """  
 
-    return self.config.get['DEFAULT'].get('OPENAI_MODEL').split(', ')
+    return self.config.get('DEFAULT', 'OPENAI_MODEL').split(', ')
 
     

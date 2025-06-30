@@ -26,7 +26,7 @@ class LoadStreamlitUI:
     st.set_page_config(page_title=" 🤖" + self.config.get_title(), page_icon=":robot_face:", layout="wide")
     st.header(" 🤖" + self.config.get_title())
     st.session_state.timeframe = ''
-    st.session_state.IsFetchbuttonClicked = False
+    st.session_state.IsFetchButtonClicked = False
     st.session_state.IsSDLC = False
 
     with st.sidebar:
@@ -44,7 +44,7 @@ class LoadStreamlitUI:
         self.user_controls['API Key'] = st.text_input('Enter Groq API Key', type='password')
 
         if not self.user_controls['API Key']:
-            st.warning('⛔ Please enter a valid Groq API key to proceed ⛔. If you don\'t have an API key, please visit https://console.groq.com to create one.')
+            st.warning('Please enter a valid Groq API key to proceed . If you don\'t have an API key, please visit https://console.groq.com to create one.')
 
       
       if self.user_controls['Selected LLM'] == 'OpenAI':
@@ -55,7 +55,7 @@ class LoadStreamlitUI:
         self.user_controls['API Key'] = st.text_input('Enter OpenAI API Key', type='password')
 
         if not self.user_controls['API Key']:
-            st.warning('⛔ Please enter a valid OpenAI API key to proceed ⛔. If you don\'t have an API key, please visit https://platform.openai.com/account/api-keys to create one.')
+            st.warning('Please enter a valid OpenAI API key to proceed . If you don\'t have an API key, please visit https://platform.openai.com/account/api-keys to create one.')
 
       use_case = self.config.get_use_case()
 
