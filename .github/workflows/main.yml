@@ -12,15 +12,20 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-          lfs: false
-          
-      - name: Ignore large files
-        run : git filter-branch --index-filter 'git rm -rf --cached --ignore-unmatch "Rag_Documents/layout-parser-paper.pdf"' HEAD
+          fetch-depth: 0 # Required for history rewriting
 
-      - name: Push to hub
+      - name: Install git-filter-repo
+        run: pip install git-filter-repo
+
+      - name: Remove large file from history
+        run: git filter-repo --path "Rag_Documents/layout-parser-paper.pdf" --invert-paths
+
+      - name: Log in to Hugging Face Hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://bpratik:$HF_TOKEN@huggingface.co/spaces/bpratik/Chatbot main
-     
-         
+        run: |
+          pip install -U "huggingface_hub>=0.20.0"
+          huggingface-cli login --token $HF_TOKEN
+
+      - name: Push to hub
+        run: git push --force https://huggingface.co/spaces/bpratik/Chatbot main
