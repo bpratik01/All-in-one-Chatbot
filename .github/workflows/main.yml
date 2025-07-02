@@ -28,4 +28,4 @@ jobs:
           huggingface-cli login --token $HF_TOKEN
 
       - name: Push to hub
-        run: git push --force https://huggingface.co/spaces/bpratik/Chatbot main
+        run: git push --force https://bpratik:$HF_TOKEN@huggingface.co/spaces/bpratik/Chatbot main
