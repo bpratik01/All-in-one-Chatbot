@@ -6,7 +6,8 @@ from src.llms.groq import GroqLLM
 from src.llms.openai import OpenAILLM
 from src.graph.graph_builder import GraphBuilder
 from src.ui.display_results import DisplayResults
-from langchain_core.messages import HumanMessage
+from src.memory.memory_manager import MemoryManager
+from langchain_core.messages import HumanMessage, AIMessage
 
 def load_app():
     """
@@ -23,6 +24,14 @@ def load_app():
     # Initialize chat history in session state
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    
+    # Initialize session ID for memory
+    if "session_id" not in st.session_state:
+        st.session_state.session_id = f"user_{hash(str(st.session_state))}"
+    
+    # Initialize memory manager
+    if "memory_manager" not in st.session_state:
+        st.session_state.memory_manager = MemoryManager()
     
     # Display chat history
     for message in st.session_state.messages:
@@ -66,13 +75,20 @@ def load_app():
                 st.error("Error: No use case selected.")
                 return 
           
-            graph_builder = GraphBuilder(model=model)
+            # Use memory-enabled model instead of regular model
+            memory_manager = st.session_state.memory_manager
+            memory_enabled_model, memory_config = memory_manager.create_memory_enabled_model(
+                model, st.session_state.session_id
+            )
+            
+            graph_builder = GraphBuilder(model=memory_enabled_model, session_id=st.session_state.session_id)
 
             try:
                 graph = graph_builder.setup_graph(use_case=use_case)
                 
-                # Process the message through the graph
+                # Process the message through the graph with memory
                 ai_response = ""
+                # Pass just the current message, memory will handle history
                 for event in graph.stream({'messages': [HumanMessage(content=user_message)]}):
                     for value in event.values():
                         ai_response = value['messages'].content

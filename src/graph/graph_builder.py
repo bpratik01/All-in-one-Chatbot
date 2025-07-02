@@ -10,13 +10,14 @@ class GraphBuilder:
     
     """Class to build the state graph for the application."""
 
-    def __init__(self, model):
+    def __init__(self, model, session_id: str = "default"):
         self.llm = model
+        self.session_id = session_id
         self.graph_builder = StateGraph(State)
     
     def basic_chatbot(self):
         """Initialize the basic chatbot node in the graph."""
-        self.basic_chatbot_node = BasicChatbot(self.llm)
+        self.basic_chatbot_node = BasicChatbot(self.llm, self.session_id)
         self.graph_builder.add_node('basic_chatbot', self.basic_chatbot_node.process)
         self.graph_builder.add_edge(START, 'basic_chatbot')
         self.graph_builder.add_edge('basic_chatbot', END)                                  

@@ -62,6 +62,25 @@ class LoadStreamlitUI:
       # Use Case Selection
       self.user_controls['Selected Use Case'] = st.selectbox('Select Use Case', use_case)
 
+      # Memory Management Section
+      st.divider()
+      st.subheader("💭 Memory Management")
+      
+      # Display current session ID
+      if "session_id" in st.session_state:
+          st.text(f"Session: {st.session_state.session_id[-8:]}")  # Show last 8 characters
+      
+      # Clear conversation button
+      if st.button("🗑️ Clear Conversation", help="Clear chat history and start fresh"):
+          if "messages" in st.session_state:
+              st.session_state.messages = []
+          if "memory_manager" in st.session_state and "session_id" in st.session_state:
+              # Clear the session from memory manager
+              st.session_state.memory_manager.clear_session(st.session_state.session_id)
+              # Create new session ID
+              st.session_state.session_id = f"user_{hash(str(st.session_state))}"
+          st.rerun()
+
 
     if 'state' not in st.session_state:
       st.session_state.state = self.initialize_session()
