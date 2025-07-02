@@ -62,6 +62,12 @@ class LoadStreamlitUI:
       # Use Case Selection
       self.user_controls['Selected Use Case'] = st.selectbox('Select Use Case', use_case)
 
+      # Tavily API Key for Web Search
+      if self.user_controls['Selected Use Case'] == 'Chatbot with Web Search':
+          self.user_controls['Tavily API Key'] = st.text_input('Enter Tavily API Key for Web Search', type='password')
+          if not self.user_controls['Tavily API Key']:
+              st.warning('Tavily API key is required for web search functionality. Get one at https://tavily.com')
+
       # Memory Management Section
       st.divider()
       st.subheader("💭 Memory Management")

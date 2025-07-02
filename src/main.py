@@ -81,7 +81,13 @@ def load_app():
                 model, st.session_state.session_id
             )
             
-            graph_builder = GraphBuilder(model=memory_enabled_model, session_id=st.session_state.session_id)
+            tavily_api_key = user_input.get('Tavily API Key', '')
+            
+            graph_builder = GraphBuilder(
+                model=memory_enabled_model, 
+                session_id=st.session_state.session_id,
+                tavily_api_key=tavily_api_key
+            )
 
             try:
                 graph = graph_builder.setup_graph(use_case=use_case)

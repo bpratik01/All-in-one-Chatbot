@@ -206,24 +206,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🚧 Future Enhancements
 
-- [ ] **Memory/History Implementation**: Add persistent conversation memory using LangChain's built-in memory features
-- [ ] **Web Search Integration**: Implement web search capabilities for the chatbot
+- [x] **Memory/History Implementation**: Add persistent conversation memory using LangChain's built-in memory features
+- [x] **Web Search Integration**: Implement web search capabilities for the chatbot
 - [ ] **File Upload Support**: Allow users to upload and chat about documents
 - [ ] **Multiple Conversation Sessions**: Support for multiple concurrent chat sessions
 - [ ] **Custom Model Integration**: Support for additional LLM providers
 - [ ] **Chat Export**: Export conversation history to various formats
 
-## 📞 Support
-
-If you encounter any issues or have questions, please:
-1. Check the troubleshooting section above
-2. Search existing GitHub issues
-3. Create a new issue with detailed information about the problem
-
-## 🙏 Acknowledgments
-
-- [LangChain](https://langchain.com/) for the AI framework
-- [LangGraph](https://langchain-ai.github.io/langgraph/) for state graph implementation
-- [Streamlit](https://streamlit.io/) for the web interface
-- [Groq](https://groq.com/) for fast inference
-- [OpenAI](https://openai.com/) for GPT models
