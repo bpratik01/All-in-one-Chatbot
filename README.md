@@ -1,3 +1,15 @@
+
+---
+title: Your Chatbot Name
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.28.1
+app_file: app.py
+pinned: false
+---
+
 # AI Chatbot with LangGraph and Streamlit
 
 A powerful AI chatbot application built with LangGraph, LangChain, and Streamlit that supports multiple LLM providers including Groq and OpenAI.
