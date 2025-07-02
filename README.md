@@ -1,15 +1,22 @@
-
 ---
-title: Your Chatbot Name
+title: AI Chatbot with Memory
 emoji: 🤖
 colorFrom: blue
 colorTo: purple
 sdk: streamlit
 sdk_version: 1.28.1
 app_file: app.py
+python_version: 3.9
 pinned: false
+license: apache-2.0
+short_description: An intelligent chatbot with conversation memory capabilities
+tags:
+  - chatbot
+  - ai
+  - conversational-ai
+  - memory
+  - nlp
 ---
-
 # AI Chatbot with LangGraph and Streamlit
 
 A powerful AI chatbot application built with LangGraph, LangChain, and Streamlit that supports multiple LLM providers including Groq and OpenAI.
@@ -95,7 +102,7 @@ A powerful AI chatbot application built with LangGraph, LangChain, and Streamlit
    ```
 
 2. **Access the app**
-   - Open your browser to `http://localhost:8501`
+   - Open your browser to `https://huggingface.co/spaces/bpratik/Chatbot`
 
 3. **Configure the chatbot**
    - Select your preferred LLM provider (Groq or OpenAI)
@@ -192,17 +199,6 @@ OPENAI_MODEL = gpt-4o, gpt-4o-mini
 - **"No use case selected"**: Select a use case from the sidebar dropdown
 - **"Graph must have an entrypoint"**: This indicates a configuration issue - restart the app
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🚧 Future Enhancements
 
