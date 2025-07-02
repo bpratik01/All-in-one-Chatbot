@@ -1,3 +1,22 @@
+---
+title: AI Chatbot with Memory
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.28.1
+app_file: app.py
+python_version: 3.9
+pinned: false
+license: apache-2.0
+short_description: An intelligent chatbot with conversation memory capabilities
+tags:
+  - chatbot
+  - ai
+  - conversational-ai
+  - memory
+  - nlp
+---
 # AI Chatbot with LangGraph and Streamlit
 
 A powerful AI chatbot application built with LangGraph, LangChain, and Streamlit that supports multiple LLM providers including Groq and OpenAI.
